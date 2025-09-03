@@ -14,7 +14,7 @@ A web application that allows you to upload an image and cut it into a customiza
 
 ## 🚀 Live Demo
 
-Visit the live demo at: `https://yourusername.github.io/imageCutter/`
+Visit the live demo at: `https://fredeerock.github.io/imageCutter/`
 
 ## 🛠️ Usage
 
@@ -48,7 +48,7 @@ To run locally:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/imageCutter.git
+git clone https://github.com/fredeerock/imageCutter.git
 
 # Navigate to the directory
 cd imageCutter
