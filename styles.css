@@ -313,3 +313,268 @@ footer {
         gap: 10px;
     }
 }
+
+/* Image Stitcher Styles */
+.section-divider {
+    text-align: center;
+    margin: 50px 0 30px 0;
+    padding: 30px 0;
+    border-top: 2px solid #e9ecef;
+}
+
+.section-divider h2 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-divider p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.stitcher-section {
+    margin-top: 30px;
+}
+
+.stitcher-controls {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.create-grid-button {
+    padding: 10px 25px;
+    background: linear-gradient(45deg, #28a745, #20c997);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.create-grid-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(40, 167, 69, 0.3);
+}
+
+.clear-grid-button {
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #dc3545, #c82333);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.clear-grid-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(220, 53, 69, 0.3);
+}
+
+.drop-grid-container {
+    margin: 20px 0;
+}
+
+.drop-grid {
+    display: grid;
+    gap: 10px;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border: 2px dashed #dee2e6;
+}
+
+.drop-slot {
+    aspect-ratio: 1;
+    min-height: 120px;
+    background: white;
+    border: 2px dashed #ced4da;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.drop-slot:hover {
+    border-color: #667eea;
+    background: #f8f9ff;
+}
+
+.drop-slot.drag-over {
+    border-color: #28a745;
+    background: #f8fff8;
+    transform: scale(1.02);
+}
+
+.drop-slot.filled {
+    border-color: #28a745;
+    border-style: solid;
+}
+
+.drop-slot-content {
+    text-align: center;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+.drop-slot-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.remove-image {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background: rgba(220, 53, 69, 0.9);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.drop-slot.filled:hover .remove-image {
+    display: flex;
+}
+
+.stitcher-actions {
+    text-align: center;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+.stitch-button {
+    padding: 12px 30px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.stitch-button:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+}
+
+.stitch-button:disabled {
+    background: #6c757d;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.stitch-options {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.stitch-options input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.stitched-result {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.stitched-result h3 {
+    margin-bottom: 20px;
+    color: #333;
+    font-size: 1.3rem;
+}
+
+.stitched-image-container {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    display: inline-block;
+}
+
+#stitchedImage {
+    max-width: 100%;
+    max-height: 600px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.download-stitched-button {
+    padding: 10px 25px;
+    background: linear-gradient(45deg, #ff6b6b, #ee5a52);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.download-stitched-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+@media (max-width: 768px) {
+    .section-divider h2 {
+        font-size: 1.5rem;
+    }
+    
+    .stitcher-controls {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    .drop-grid {
+        padding: 15px;
+    }
+    
+    .drop-slot {
+        min-height: 80px;
+    }
+    
+    .stitcher-actions {
+        flex-direction: column;
+    }
+}

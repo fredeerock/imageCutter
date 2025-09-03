@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Image Grid Cutter - Cut Images into Custom Grids</title>
-    <meta name="description" content="Upload an image and cut it into a customizable grid. Perfect for creating puzzles, social media content, or breaking down large images.">
-    <meta name="keywords" content="image cutter, grid, image splitter, photo editor, image processing">
+    <title>Image Grid Cutter & Stitcher - Cut & Combine Images</title>
+    <meta name="description" content="Upload an image and cut it into a customizable grid, or drag and drop multiple images to stitch them together into one combined image.">
+    <meta name="keywords" content="image cutter, grid, image splitter, photo editor, image processing, image stitcher, photo collage">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -30,8 +30,8 @@
 <body>
     <div class="container">
         <header>
-            <h1>🔪 Image Grid Cutter</h1>
-            <p>Upload an image and cut it into a customizable grid</p>
+            <h1>🔪 Image Grid Cutter & Stitcher</h1>
+            <p>Cut images into grids OR combine multiple images into one</p>
         </header>
 
         <main>
@@ -74,6 +74,47 @@
                 </div>
                 <div id="resultGrid" class="result-grid"></div>
             </div>
+
+            <div class="section-divider">
+                <h2>🧩 Image Stitcher</h2>
+                <p>Drag and drop multiple images onto a grid to combine them into one image</p>
+            </div>
+
+            <div class="stitcher-section">
+                <div class="stitcher-controls">
+                    <div class="control-group">
+                        <label for="stitcherRows">Grid Rows:</label>
+                        <input type="number" id="stitcherRows" min="1" max="10" value="2">
+                    </div>
+                    <div class="control-group">
+                        <label for="stitcherCols">Grid Columns:</label>
+                        <input type="number" id="stitcherCols" min="1" max="10" value="2">
+                    </div>
+                    <button id="createGridButton" class="create-grid-button">Create Grid</button>
+                    <button id="clearGridButton" class="clear-grid-button" style="display: none;">Clear Grid</button>
+                </div>
+
+                <div class="drop-grid-container" id="dropGridContainer" style="display: none;">
+                    <div id="dropGrid" class="drop-grid"></div>
+                    <div class="stitcher-actions">
+                        <button id="stitchImagesButton" class="stitch-button" disabled>Stitch Images Together</button>
+                        <div class="stitch-options">
+                            <label>
+                                <input type="checkbox" id="maintainAspectRatio" checked>
+                                Maintain aspect ratios
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stitched-result" id="stitchedResult" style="display: none;">
+                    <h3>Stitched Image</h3>
+                    <div class="stitched-image-container">
+                        <img id="stitchedImage" alt="Stitched result">
+                        <button id="downloadStitchedButton" class="download-stitched-button">Download Stitched Image</button>
+                    </div>
+                </div>
+            </div>
         </main>
 
         <footer>
@@ -82,6 +123,7 @@
     </div>
 
     <canvas id="hiddenCanvas" style="display: none;"></canvas>
+    <canvas id="stitcherCanvas" style="display: none;"></canvas>
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
     <script src="script.js"></script>
