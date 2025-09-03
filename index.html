@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Grid Cutter - Cut Images into Custom Grids</title>
+    <meta name="description" content="Upload an image and cut it into a customizable grid. Perfect for creating puzzles, social media content, or breaking down large images.">
+    <meta name="keywords" content="image cutter, grid, image splitter, photo editor, image processing">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Image Grid Cutter">
+    <meta property="og:description" content="Cut images into customizable grids with this free online tool">
+    <meta property="og:url" content="https://yourusername.github.io/imageCutter/">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:title" content="Image Grid Cutter">
+    <meta property="twitter:description" content="Cut images into customizable grids with this free online tool">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23667eea'/%3E%3Ctext x='50' y='60' font-size='50' text-anchor='middle' fill='white'%3E🔪%3C/text%3E%3C/svg%3E">
+    
+    <!-- Manifest -->
+    <link rel="manifest" href="manifest.json">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔪 Image Grid Cutter</h1>
+            <p>Upload an image and cut it into a customizable grid</p>
+        </header>
+
+        <main>
+            <div class="upload-section">
+                <div class="file-input-wrapper">
+                    <input type="file" id="imageInput" accept="image/*" class="file-input">
+                    <label for="imageInput" class="file-label">
+                        <span class="upload-icon">📁</span>
+                        Choose Image
+                    </label>
+                </div>
+            </div>
+
+            <div class="controls-section" id="controlsSection" style="display: none;">
+                <div class="grid-controls">
+                    <div class="control-group">
+                        <label for="rows">Rows:</label>
+                        <input type="number" id="rows" min="1" max="20" value="3">
+                    </div>
+                    <div class="control-group">
+                        <label for="cols">Columns:</label>
+                        <input type="number" id="cols" min="1" max="20" value="3">
+                    </div>
+                    <button id="cutButton" class="cut-button">Cut Image</button>
+                </div>
+            </div>
+
+            <div class="preview-section" id="previewSection" style="display: none;">
+                <h3>Original Image Preview</h3>
+                <div class="image-preview">
+                    <img id="originalImage" alt="Original image">
+                    <div id="gridOverlay" class="grid-overlay"></div>
+                </div>
+            </div>
+
+            <div class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-header">
+                    <h3>Grid Pieces</h3>
+                    <button id="downloadAllButton" class="download-all-button">Download All as ZIP</button>
+                </div>
+                <div id="resultGrid" class="result-grid"></div>
+            </div>
+        </main>
+
+        <footer>
+            <p>Built with ❤️ for GitHub Pages</p>
+        </footer>
+    </div>
+
+    <canvas id="hiddenCanvas" style="display: none;"></canvas>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
