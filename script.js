@@ -162,12 +162,15 @@ class ImageGridCutter {
                 
                 // Convert to blob
                 pieceCanvas.toBlob((blob) => {
+                    // Calculate sequential number (left to right, top to bottom)
+                    const sequentialNumber = (row * cols) + col + 1;
                     const piece = {
                         blob: blob,
                         row: row + 1,
                         col: col + 1,
+                        sequentialNumber: sequentialNumber,
                         dataUrl: pieceCanvas.toDataURL('image/png'),
-                        filename: `piece_${row + 1}_${col + 1}.png`
+                        filename: `piece_${sequentialNumber.toString().padStart(3, '0')}.png`
                     };
                     this.gridPieces.push(piece);
                     
@@ -187,11 +190,8 @@ class ImageGridCutter {
         // Clear previous results
         resultGrid.innerHTML = '';
         
-        // Sort pieces by row and column
-        this.gridPieces.sort((a, b) => {
-            if (a.row !== b.row) return a.row - b.row;
-            return a.col - b.col;
-        });
+        // Sort pieces by sequential number
+        this.gridPieces.sort((a, b) => a.sequentialNumber - b.sequentialNumber);
 
         // Create grid pieces display
         this.gridPieces.forEach(piece => {
@@ -199,9 +199,9 @@ class ImageGridCutter {
             gridPieceDiv.className = 'grid-piece';
             
             gridPieceDiv.innerHTML = `
-                <img src="${piece.dataUrl}" alt="Grid piece ${piece.row}-${piece.col}">
+                <img src="${piece.dataUrl}" alt="Grid piece ${piece.sequentialNumber}">
                 <div class="piece-info">
-                    <div class="piece-label">Row ${piece.row}, Col ${piece.col}</div>
+                    <div class="piece-label">Piece ${piece.sequentialNumber} (Row ${piece.row}, Col ${piece.col})</div>
                     <button class="download-button" onclick="imageCutter.downloadPiece(${this.gridPieces.indexOf(piece)})">
                         Download
                     </button>

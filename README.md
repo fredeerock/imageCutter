@@ -54,6 +54,7 @@ Visit the live demo at: `https://fredeerock.github.io/imageCutter/`
 - **Cutter Grid Sizes**: 1×1 up to 20×20 (400 pieces maximum)
 - **Stitcher Grid Sizes**: 1×1 up to 10×10 (100 images maximum)
 - **Download Formats**: PNG format for all output images
+- **Sequential Naming**: Cut pieces are named sequentially (001, 002, etc.) from left to right, top to bottom
 - **Aspect Ratio Control**: Choose to maintain or stretch images when stitching
 - **Keyboard Shortcuts**: Ctrl/Cmd + Enter to cut image
 
